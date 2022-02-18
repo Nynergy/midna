@@ -1,0 +1,12 @@
+{
+    "Foreground": "#22ffaa",
+    "ForegroundAlt": "#d98e00",
+    "Background": "#000909",
+    "Focus": "#003a3a",
+    "Accent1": "#041616",
+    "Accent2": "#092c2c",
+    "Accent3": "#31302e",
+    "Accent4": "#151515",
+    "DefaultImageSize": 60,
+    "ShowTitleBar": true
+}

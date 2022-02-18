@@ -1,0 +1,30 @@
+#!/usr/bin/env python
+
+import json
+
+from tkinter import Tk
+
+from tracker import Tracker, State
+from items import getDefaultItems
+
+def readConfigFromFile():
+    default_config = 'config.json'
+
+    with open(default_config) as fp:
+        data = json.load(fp)
+
+    return data
+
+def main():
+    root = Tk()
+    root.title('midna - Twilight Princess Randomizer Tracker')
+
+    state = State(getDefaultItems())
+    config = readConfigFromFile()
+    tracker = Tracker(root, state, config)
+
+    tracker.build()
+    tracker.run()
+
+if __name__ == '__main__':
+    main()
