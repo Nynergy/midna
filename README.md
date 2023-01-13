@@ -12,7 +12,7 @@ _midna_ is an item tracker for Twilight Princess Randomizer, a version of The
 Legend of Zelda: Twilight Princess in which items can be shuffled around into
 different locations with each playthrough, among other changes to the game
 logic. If you're interested in the randomizer and want to learn more, visit the
-[TPR website](https://rando.zeldatp.net/).
+[TPR website](https://tprandomizer.com/).
 
 Shout out to [lunarsoap5](https://github.com/lunarsoap5) for contributing to
 such a fantastic randomizer, and for making the [online
@@ -55,7 +55,8 @@ Items the tracker includes are the following:
 - Iron Boots
 - Hero's Bow (w/Big and Giant Quivers)
 - Hawkeye
-- Bomb Bags (w/Giant Bomb Bags)
+- Bomb Bags
+- Giant Bomb Bag
 - Clawshot and Double Clawshot
 - Spinner
 - Ball and Chain
@@ -64,30 +65,21 @@ Items the tracker includes are the following:
 - Shield (Ordon, Wooden, and Hylian)
 - Sword (Wooden, Ordon, Master, and Light)
 - Bottles (4)
-- Tunic/Armor (Hero's Tunic, Zora Armor, Magic Armor)
-- Ilia's Quest Items (Renado's Letter, Invoice, Wooden Statue, Ilia's Charm)
+- Zora Armor
+- Magic Armor
 - Ancient Sky Book (w/Sky Characters)
 - Auru's Memo
 - Ashei's Sketch
 - Horse Call
 - Golden Bugs (24)
 - Poe Souls (60)
-- Heart Pieces (45)
-- Heart Containers (8)
 - Hidden Skills (7)
 - Green Rupees (2)
-- Vessel of Light (Mark if all Twilights beaten/skipped)
 - Shadow Crystal
-- All Bosses and Small Keys
-  - Diababa/Forest Temple
-  - Fyrus/Goron Mines
-  - Morpheel/Lakebed Temple
-  - Stallord/Arbiter's Grounds
-  - Blizzeta/Snowpeak Ruins (w/Ordon Pumpkin and Goat Cheese)
-  - Armogohma/Temple of Time
-  - Argorok/City in the Sky
-  - Zant/Palace of Twilight
-  - Ganondorf/Hyrule Castle
+- Dungeon Items
+  - All Boss Keys
+  - All Dungeon Rewards (Fused Shadow/Mirror Shard)
+  - All Small Keys
 
 ## How can I run it?
 
