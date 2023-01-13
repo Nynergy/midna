@@ -4,6 +4,7 @@ import os
 
 from tkinter import *
 from tkinter import colorchooser
+from tkinter import font
 from tkinter.filedialog import asksaveasfilename, askopenfilename
 from tkinter.messagebox import askyesno, showerror
 from PIL import ImageTk, Image, ImageEnhance
@@ -14,6 +15,7 @@ COUNTS_DIR = 'img/counts/'
 DARKEN_FACTOR = 0.4
 IMAGE_SCALE_MIN = 10
 IMAGE_SCALE_MAX = 120
+TRACKER_FONT = ('Liberation Mono', 8)
 
 FULL_SPAN = 6
 HALF_SPAN = FULL_SPAN // 2
@@ -91,7 +93,7 @@ class Tracker:
 
         if self.showTitleBar:
             title = Label(self.root, text='midna', fg=self.config['ForegroundAlt'],
-                          bg=self.config['Accent3'])
+                          bg=self.config['Accent3'], font=TRACKER_FONT)
             title.grid(row=0, column=0, columnspan=FULL_SPAN, sticky='NSEW')
 
     def constructItemButtons(self):
@@ -232,7 +234,7 @@ class Tracker:
         button = Button(master, text=text, command=command)
         button.grid(row=row, column=column, columnspan=span, sticky=sticky)
         button.configure(fg=fg, bg=bg, activeforeground=afg, activebackground=abg,
-                         highlightthickness=0, bd=0)
+                         highlightthickness=0, bd=0, font=TRACKER_FONT)
 
         return button
 
@@ -288,7 +290,7 @@ class Tracker:
         a3 = self.config['Accent3']
         a4 = self.config['Accent4']
 
-        color_header = Label(self.settings, text='Colors', fg=fa, bg=a3)
+        color_header = Label(self.settings, text='Colors', fg=fa, bg=a3, font=TRACKER_FONT)
         color_header.grid(row=menu_rows, column=0, columnspan=2, sticky='NSEW')
         menu_rows += 1
 
@@ -304,7 +306,7 @@ class Tracker:
                  ]
 
         for c in colors:
-            label = Label(self.settings, text=c['color'], fg=fg, bg=bg)
+            label = Label(self.settings, text=c['color'], fg=fg, bg=bg, font=TRACKER_FONT)
             label.grid(row=menu_rows, column=0, sticky='NSEW')
             button = self.createButton(self.settings, c['hex'], None, menu_rows, 1, 1, 'NSEW',
                                        c['fg'], c['hex'], c['fg'], c['hex'])
@@ -312,15 +314,15 @@ class Tracker:
             menu_rows += 1
 
         # Miscellaneous
-        misc_header = Label(self.settings, text='Miscellaneous', fg=fa, bg=a3)
+        misc_header = Label(self.settings, text='Miscellaneous', fg=fa, bg=a3, font=TRACKER_FONT)
         misc_header.grid(row=menu_rows, column=0, columnspan=2, sticky='NSEW')
         menu_rows += 1
 
         # Default Image Size
-        size_label = Label(self.settings, text='Default Image Size', fg=fg, bg=bg)
+        size_label = Label(self.settings, text='Default Image Size', fg=fg, bg=bg, font=TRACKER_FONT)
         size_label.grid(row=menu_rows, column=0, sticky='NSEW')
         size_text = self.temp_config['DefaultImageSize']
-        self.size_entry = Entry(self.settings)
+        self.size_entry = Entry(self.settings, font=TRACKER_FONT)
         self.size_entry.insert(0, size_text)
         self.size_entry.grid(row=menu_rows, column=1, sticky='NSEW')
         menu_rows += 1
@@ -332,7 +334,7 @@ class Tracker:
         self.size_entry.configure(validate='key', validatecommand=(val, '%P'))
 
         # Toggle Title Bar
-        title_label = Label(self.settings, text='Show Title Bar', fg=fg, bg=bg)
+        title_label = Label(self.settings, text='Show Title Bar', fg=fg, bg=bg, font=TRACKER_FONT)
         title_label.grid(row=menu_rows, column=0, sticky='NSEW')
         title_text = 'True' if self.temp_config['ShowTitleBar'] else 'False'
         title_button = self.createButton(self.settings, title_text, None,
@@ -391,7 +393,7 @@ class Tracker:
 
     def constructSliders(self):
         scale_label = Label(self.root, text='Image Size', fg=self.config["ForegroundAlt"],
-                            bg=self.config["Accent3"])
+                            bg=self.config["Accent3"], font=TRACKER_FONT)
         scale_label.grid(row=(len(self.state.items) + self.titleBarHeight + self.commandRows),
                          column=0, columnspan=THIRD_SPAN, sticky='NSEW')
 
