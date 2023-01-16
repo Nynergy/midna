@@ -103,7 +103,7 @@ class Tracker:
                 item = items[y][x]
                 new_image = item.get_image_path()
                 new_num = self.getItemNum(item)
-                self.createItemButton(new_image, x, y, new_num, item.isDark())
+                self.createItemButton(new_image, x, y, new_num, item.itemText, item.isDark())
 
     def getItemNum(self, item):
         if isinstance(item, NumberedItem):
@@ -116,7 +116,7 @@ class Tracker:
 
         return new_num
 
-    def createItemButton(self, filepath, x, y, new_num, isDark):
+    def createItemButton(self, filepath, x, y, new_num, itemText, isDark):
         img = self.constructImage(filepath, x, y, new_num, isDark)
         photo = ImageTk.PhotoImage(img)
 
@@ -126,12 +126,13 @@ class Tracker:
         label.configure(bg=self.config["Background"], activebackground=self.config["Focus"],
                         highlightthickness=0)
 
-        button = Button(self.root, image=photo)
+        button = Button(self.root, image=photo, text=itemText, compound='top')
         button.bind('<Button-1>', lambda event, x=x, y=y: self.forwardState(x, y))  # Left click
         button.bind('<Button-3>', lambda event, x=x, y=y: self.backwardState(x, y)) # Right click
         button.grid(row=y + self.titleBarHeight, column=x, sticky='NSEW')
-        button.configure(bg=self.config["Background"], activebackground=self.config["Focus"],
-                         highlightthickness=0, bd=0)
+        button.configure(fg=self.config["ForegroundAlt"], activeforeground=self.config["ForegroundAlt"],
+                         bg=self.config["Background"], activebackground=self.config["Focus"],
+                         highlightthickness=0, bd=0, font=TRACKER_FONT)
 
     def constructImage(self, filepath, x, y, new_num, isDark):
         img = Image.open(filepath)
@@ -163,7 +164,7 @@ class Tracker:
         item.next_state()
         new_image = item.get_image_path()
         new_num = self.getItemNum(item)
-        self.createItemButton(new_image, x, y, new_num, item.isDark())
+        self.createItemButton(new_image, x, y, new_num, item.itemText, item.isDark())
 
     def backwardState(self, x, y):
         items = self.state.items
@@ -171,7 +172,7 @@ class Tracker:
         item.prev_state()
         new_image = item.get_image_path()
         new_num = self.getItemNum(item)
-        self.createItemButton(new_image, x, y, new_num, item.isDark())
+        self.createItemButton(new_image, x, y, new_num, item.itemText, item.isDark())
 
     def constructCommandButtons(self):
         items = self.state.items
@@ -409,9 +410,8 @@ class Tracker:
         num_rows = len(self.state.items) + self.titleBarHeight + self.commandRows
         num_cols = len(self.state.items[0])
 
-        for i in range(num_rows):
+        for i in range(1, num_rows - 2):
             self.root.grid_rowconfigure(i, weight=1)
-        self.root.grid_rowconfigure(num_rows, weight=0)
         for j in range(num_cols):
             self.root.grid_columnconfigure(j, weight=1)
 
